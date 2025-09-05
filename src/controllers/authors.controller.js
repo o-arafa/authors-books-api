@@ -33,10 +33,10 @@ const createAuthor = async (req, res) => {
 
 const updateAuthor = async (req, res) => {
   try {
-    const { name, birthdate } = req.body;
+    const { name, birthDate } = req.body;
     const author = await Author.findByIdAndUpdate(
       req.params.authorId,
-      { name, birthdate },
+      { name, birthDate },
       { new: true, runValidators: true }
     );
 

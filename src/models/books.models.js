@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema({
     ref: "Author",
     required: true,
   },
-  name: {
+  title: {
     type: String,
     required: true,
   },
