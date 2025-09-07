@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const authorsController = require("../controllers/authors.controller");
 const validateObjectId = require("../middlewares/validateObjectId");
+const validateRequest = require("../middlewares/validateRequest");
+const {
+  createAuthorSchema,
+  updateAuthorSchema,
+} = require("../validators/authors.validators");
 
 router.get("/", authorsController.getAllAuthors);
 router.get(
@@ -9,10 +14,15 @@ router.get(
   validateObjectId("authorId"),
   authorsController.getAuthor
 );
-router.post("/", authorsController.createAuthor);
+router.post(
+  "/",
+  validateRequest(createAuthorSchema),
+  authorsController.createAuthor
+);
 router.put(
   "/:authorId",
   validateObjectId("authorId"),
+  validateRequest(updateAuthorSchema),
   authorsController.updateAuthor
 );
 router.delete(
