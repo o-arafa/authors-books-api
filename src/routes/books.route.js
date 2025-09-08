@@ -6,16 +6,20 @@ const validateRequest = require("../middlewares/validateRequest");
 const {
   createBookSchema,
   updateBookSchema,
-} = require("../validators/books.validators");
+} = require("../validators/book.validation");
 
 router.get("/", booksController.getAllBooks);
 router.get("/:bookId", validateObjectId("bookId"), booksController.getBook);
 router.post("/", validateRequest(createBookSchema), booksController.createBook);
-router.put("/:bookId", validateObjectId("bookId"), booksController.updateBook);
-router.delete(
+router.put(
   "/:bookId",
   validateObjectId("bookId"),
   validateRequest(updateBookSchema),
+  booksController.updateBook
+);
+router.delete(
+  "/:bookId",
+  validateObjectId("bookId"),
   booksController.deleteBook
 );
 

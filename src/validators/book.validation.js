@@ -4,7 +4,7 @@ const createBookSchema = Joi.object({
   title: Joi.string().min(2).max(200).required().messages({
     "string.base": "Title must be a string",
     "string.empty": "Title cannot be empty",
-    "string.min": "Title must be at least 1 character long",
+    "string.min": "Title must be at least 2 character long",
     "string.max": "Title cannot exceed 200 characters",
     "any.required": "Title is required",
   }),
@@ -20,7 +20,7 @@ const updateBookSchema = Joi.object({
   title: Joi.string().min(2).max(200).optional().messages({
     "string.base": "Title must be a string",
     "string.empty": "Title cannot be empty",
-    "string.min": "Title must be at least 1 character long",
+    "string.min": "Title must be at least 2 character long",
     "string.max": "Title cannot exceed 200 characters",
   }),
 

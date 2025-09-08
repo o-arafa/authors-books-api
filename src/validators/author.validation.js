@@ -9,7 +9,7 @@ const createAuthorSchema = Joi.object({
     "any.required": "Name is required",
   }),
 
-  birthDate: Joi.date().max("now").required().messages({
+  birthDate: Joi.date().iso().max("now").required().messages({
     "date.base": "Birth date must be a valid date",
     "date.max": "Birth date cannot be in the future",
     "any.required": "Birth date is required",

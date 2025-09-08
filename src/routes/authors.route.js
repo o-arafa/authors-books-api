@@ -6,7 +6,7 @@ const validateRequest = require("../middlewares/validateRequest");
 const {
   createAuthorSchema,
   updateAuthorSchema,
-} = require("../validators/authors.validators");
+} = require("../validators/author.validation");
 
 router.get("/", authorsController.getAllAuthors);
 router.get(
